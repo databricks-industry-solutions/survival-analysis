@@ -25,8 +25,8 @@
 # MAGIC %md
 # MAGIC ## Overview
 # MAGIC 
-# MAGIC * Kaplan-Meier is a statistical method that is used to construct survival probablity curves. This method takes censoring into account, therefore overcoming the issue of underestimating survival probabilities that ocurrs when using mean or median.
-# MAGIC * The log-rank test is a chi-square test that is used to test the null hypothesis that two or more survival curves are statistically equivalant.
+# MAGIC * Kaplan-Meier is a statistical method that is used to construct survival probability curves. This method takes censoring into account, therefore overcoming the issue of underestimating survival probabilities that occurs when using mean or median.
+# MAGIC * The log-rank test is a chi-square test that is used to test the null hypothesis that two or more survival curves are statistically equivalent.
 
 # COMMAND ----------
 
@@ -87,7 +87,7 @@ kmf.fit(T,C)
 # MAGIC 
 # MAGIC * `Interpretation:` In the purest sense, the probability of a customer surviving **at least** 0 months is 100%. This is represented by the point (0,1.0) in the plot below. Moving down the survival curve to the median (34 months), it can be said that a customer has a 50% probability of surviving **at least** 34 months, given that they have survived 33 months. Please note that the last clause 'given that...' signifies that this is a conditional probability.
 # MAGIC 
-# MAGIC * `Confidence Intervals:` The light blue border surrounding the survival probability curve represents the confidence interval. Thie wider the interval, the lower the confidence. As seen in the plot below, confidence in the estimates decrease as the timeline increases. While this reduced confidence is likely due to having less data, it is also intuitive that we would have more confidence in our predictions for the near-term than in our predictions for the longer-term.
+# MAGIC * `Confidence Intervals:` The light blue border surrounding the survival probability curve represents the confidence interval. The wider the interval, the lower the confidence. As seen in the plot below, confidence in the estimates decrease as the timeline increases. While this reduced confidence is likely due to having less data, it is also intuitive that we would have more confidence in our predictions for the near-term than in our predictions for the longer-term.
 
 # COMMAND ----------
 
