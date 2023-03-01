@@ -24,7 +24,7 @@
 # MAGIC %md
 # MAGIC ## Overview
 # MAGIC 
-# MAGIC * The canonical example of Accelerated Failure Time models, shared by Kleinbaum & Klein in [Survival Analysis: A Self-Learning Text](https://www.springer.com/gp/book/9781441966452), is the lifespan of dogs. It is commonly accepted that dogs age 7x faster than humans. They go through the same lifestages that we do, just faster.
+# MAGIC * The canonical example of Accelerated Failure Time models, shared by Kleinbaum & Klein in [Survival Analysis: A Self-Learning Text](https://www.springer.com/gp/book/9781441966452), is the lifespan of dogs. It is commonly accepted that dogs age 7x faster than humans. They go through the same life stages that we do, just faster.
 # MAGIC 
 # MAGIC * In contrast to Kaplan-Meier and Cox Proportional Hazards, Accelerated Failure Time is a parametric model. This means that the outcome variable is assumed to follow a specified distribution. Parametric models are typically less 'flexible' than non-parametric and semi-parametric models but can be a good choice when you're comfortable with specifying the distribution of the outcome variable.
 # MAGIC 
@@ -118,7 +118,7 @@ survival_pd = encoded_pd[['churn','tenure','partner_Yes', 'multipleLines_Yes', \
 # MAGIC * In this notebook, the type of distribution that we have specified for the outcome variable is log-logistic. This is reflected by the use of `LogLogisticAFTFitter` when fitting the model. Other options that are available through Lifelines include: `WeibullAFTFitter`, `LogNormalAFTFitter`. After we fit the model and assess the results, we will assess whether `LogLogistic` is the appropriate type of distribution to specify for this dataset. 
 # MAGIC 
 # MAGIC * We provided three parameters to the fitted model:
-# MAGIC   * `suvival_pd`: the dataframe used to fit the model
+# MAGIC   * `survival_pd`: the dataframe used to fit the model
 # MAGIC   * `Tenure:` the duration that a customer has been with the company (if still a subscriber) or was with the company prior to churning.
 # MAGIC   * `Churn:` a Boolean indicating whether the customer is still a subscriber or not.
 
@@ -140,11 +140,11 @@ print("Median Survival Time:{:.2f}".format(np.exp(aft.median_survival_time_)))
 # MAGIC There are three key questions to ask when initially assessing the model:
 # MAGIC 1. **Is each covariate statistically significant?**
 # MAGIC   * In the column labeled `p` below, it can be seen that the p-value for each column is below < 0.005. Therefore, each of the columns is statistically significant and safe to include. 
-# MAGIC   * Similar to other forms of regression, in the event that a variable is not statisitically significant, you can drop that column from your analysis or recategorize the corresponding values.
+# MAGIC   * Similar to other forms of regression, in the event that a variable is not statistically significant, you can drop that column from your analysis or recategorize the corresponding values.
 # MAGIC 
 # MAGIC 2. **How confident are we in the coefficient estimates?**
 # MAGIC   * Upper and lower bounds for each coefficient and exp(coefficient) are provided in the model summary below (e.g. `exp(coef) lower 95%`, `exp(coef) upper 95%`).
-# MAGIC   * Shown below the model summary, these bounds can also be viewed visually. Although it's not seen here, note that when viewing the bounds in this way, a variable can be deemed as not signficant when it's corresponding box-and-whisker plot crosses the value 1.
+# MAGIC   * Shown below the model summary, these bounds can also be viewed visually. Although it's not seen here, note that when viewing the bounds in this way, a variable can be deemed as not significant when it's corresponding box-and-whisker plot crosses the value 1.
 # MAGIC 
 # MAGIC 3. **What is the effect of each covariate on the hazard ratio?**
 # MAGIC   * Using internetService_DSL as an example, it's shown below that `coef = 0.38` and `exp(coef) = 1.47`. Referring back to the Accelerated Failure Time equation, this means that a customer's time-until-churn is accelerated by a factor of 1.47 when they have Fiber Optic as their internet service.  Note that Fiber Optic is the baseline value and corresponds to Group A in the equation shared above.

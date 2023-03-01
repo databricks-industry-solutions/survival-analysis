@@ -42,7 +42,7 @@
 # MAGIC %md
 # MAGIC ## About the Data
 # MAGIC 
-# MAGIC * The dataset used in this series of notebooks comes from [IBM](https://github.com/IBM/telco-customer-churn-on-icp4d/blob/master/data/Telco-Customer-Churn.csv) and is meant to resemble a ficticious Telecommunications company. Each record in this dataset represents a subscriber and contains information about their respective demographics, service plan, media usage, and subscription status. Most important, as we'll see in a bit, this dataset contains two columns that are required for this form of analysis:
+# MAGIC * The dataset used in this series of notebooks comes from [IBM](https://github.com/IBM/telco-customer-churn-on-icp4d/blob/master/data/Telco-Customer-Churn.csv) and is meant to resemble a fictitious Telecommunications company. Each record in this dataset represents a subscriber and contains information about their respective demographics, service plan, media usage, and subscription status. Most important, as we'll see in a bit, this dataset contains two columns that are required for this form of analysis:
 # MAGIC   * `Tenure:` the duration that a customer has been with the company (if still a subscriber) or was with the company prior to churning.
 # MAGIC   * `Churn:` a Boolean indicating whether the customer is still a subscriber or not.
 # MAGIC   
